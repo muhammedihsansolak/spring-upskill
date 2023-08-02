@@ -1,0 +1,86 @@
+Framework -> Bunch of components
+
+Business Logic Code -> Business logic code is what makes an application different from another from the functionality point of view.
+
+Spring Ecosystem -> We refer to Spring as a framework, but actually, Spring is much more complex.
+-------------------
+
+Coupling -> It simply means that one object requires another object to complete its assigned task.
+	-> Tightly couple: A group of classes are highly dependent on one another.
+	-> Loosely couple: An object gets the object to be used from external(abstract class, interface) sources.
+
+- Loose coupling allows us to make changes easily. Less amount of code required for changes. Loosely couple structure is much more easy to test it.
+-------------------
+
+Spring Core -> Starting point. Every component build on top of core.
+	
+	**IoC (Inversion of Control):
+	- We do not have to create and manage our objects again and again. Instead, we allow the framework to control the app and its code.
+	- Spring is taking the control of creating and managing the objects.
+	- IoC aimed to achieve loose coupling
+
+Inversion: act of changing the position or order of something.
+
+POJO: Plain Old Java Object. an ordinary Java object, not bound by any special restriction.
+
+Spring Bean: A java object. Spring beans are created from POJOs.
+
+Spring Container/context (IoC Container): where spring creates and manages all the beans. Based on configuration, spring container creates the objects.
+
+Configuration: set of instructions on what kind of object's will be instantiate and managed by container
+
+-> 2 type of IoC (Inversion of Control) container:
+	1- BeanFactory ( org.springframework.beans.factory.BeanFactory ) ( Interface )
+	2- ApplicationContext ( org.springframework.context.ApplicationContext ) ( Interface )
+
+	- BeanFactory: Root interface for accessing spring bean container. Some implementation classes are: XmlBeanFactory , DefaultListableBeanFactory, SimpleJndiBeanFactory
+
+	- ApplicationContext: Generally recommended over BeanFactory. Implementation classes are: **AnnotationConfigApplicationContext , ClassPathXmlApplicationContext , WebXmlApplicationContext
+
+BeanFactory is parent of ApplicationContext.
+-------------------
+
+-> Creating a container:
+
+- First add the 'Spring Context' dependency to your pom.xml
+
+		 <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.22</version>
+        </dependency>
+
+
+- Second create a ApplicationContext object
+
+ApplicationContext container = new AnnotationConfigApplicationContext();
+
+- So far we created container and POJOs(our ready classes). In order to add beans to the container give the configurations. 2 ways to do it
+	- @Bean annotation
+	- stereotype annotations
+
+-> Using @Bean annotation
+
+	1- Define a class annotated with @Configuration.
+	2- Add a mehtod that returns object instance you want to add to the container/contex annotated with @Bean.
+	3- Define what configuration you want to use in the container object's constructor
+
+	new AnnotationConfigApplicationContext(A.class, B.class);
+
+**.class is needed because container's constructor accepts class ONLY
+
+
+Ex:
+@Configuration
+public class A{
+	@Bean
+	public B b(){
+		return new B();
+	}
+}
+
+- There is a method called *getBean()*. Returns/Creates the object inside the container.  
+
+	Monitor monitor = container.getBean(Monitor.class)
+	
+If there are 2 type of container and we did not initialize a special one, NoUniqueBeanDefinitionException occures.
