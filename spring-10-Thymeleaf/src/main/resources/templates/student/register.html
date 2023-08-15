@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">  <!--  ADDING THE THYMELEAF DEPENDENCY  -->
+<head>
+    <meta charset="UTF-8">
+    <title>Cydeo</title>
+</head>
+<body>
+
+<!--DISPLAY VALUE OF MODAL-->
+<h2  th:text="${ students.get(0).firstName }"> </h2>
+<h2  th:text="${ students.get(0).lastName }"> </h2>
+
+<!--CONCATENATION-->
+<h2 th:text="${ 'Hello' + students.get(0).getFirstName() }" ></h2>
+<h2 th:text="${ students.get(0).getLastName() + ' ' + students.get(0).getFirstName() }"></h2>
+
+
+</body>
+</html>

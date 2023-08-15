@@ -16,25 +16,13 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td th:text="${mentor1.getFirstName()}"></td>
-    <td th:text="${mentor1.getLastName()}"></td>
-    <td th:text="${mentor1.getAge()}"></td>
-    <td th:text="${mentor1.getGender()}"></td>
+  <tr th:each="mentor : ${mentorList}">
+    <td th:text="${mentor.getFirstName()}"></td>
+    <td th:text="${mentor.getLastName()}"></td>
+    <td th:text="${mentor.getAge()}"></td>
+    <td th:text="${mentor.getGender()}"></td>
+  </tr>
 
-  </tr>
-  <tr>
-    <td th:text="${mentor2.getFirstName()}"></td>
-    <td th:text="${mentor2.getLastName()}"></td>
-    <td th:text="${mentor2.getAge()}"></td>
-    <td th:text="${mentor2.getGender()}"></td>
-  </tr>
-  <tr>
-    <td th:text="${mentor3.getFirstName()}"></td>
-    <td th:text="${mentor3.getLastName()}"></td>
-    <td th:text="${mentor3.getAge()}"></td>
-    <td th:text="${mentor3.getGender()}"></td>
-  </tr>
   </tbody>
 </table>
 

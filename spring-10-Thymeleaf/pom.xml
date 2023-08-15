@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.3</version>
+		<version>2.7.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cydeo</groupId>
-	<artifactId>spring-09-MVC-Model</artifactId>
+	<artifactId>spring-10-Thymeleaf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-09-MVC-Model</name>
-	<description>spring-09-MVC-Model</description>
+	<name>spring-10-Thymeleaf</name>
+	<description>spring-10-Thymeleaf</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -26,6 +26,12 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
