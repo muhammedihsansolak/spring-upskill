@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">  <!--  ADDING THE THYMELEAF DEPENDENCY  -->
+<head>
+  <meta charset="UTF-8">
+  <title>Cydeo</title>
+</head>
+<body>
+
+<h2>Welcome Page</h2>
+
+<!--FRAGMENTS-->
+
+<div th:replace="/fragments/index :: footer-menu"></div>
+
+<div th:replace="/fragments/index :: main-menu" ></div>
+
+</body>
+</html>
