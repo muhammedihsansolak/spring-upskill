@@ -21,6 +21,15 @@ public class CarController {
         return "car/car-info";
     }
 
+    @RequestMapping("/info2")
+    public String car2(@RequestParam(value = "make", required = false, defaultValue = "Audi") String make, Model model){
+
+        model.addAttribute("model",make);
+        System.out.println(make);
+
+        return "car/car-info";
+    }
+
     @RequestMapping("/info3") //http://localhost:8080/info3?make=Nissan&year=2021
     public String car3(@RequestParam String make,@RequestParam int year , Model model){
 
@@ -30,14 +39,7 @@ public class CarController {
         return "car/car-info";
     }
 
-//    @RequestMapping("/info2")
-//    public String car2(@RequestParam(value = "make", required = false, defaultValue = "Audi") String make, Model model){
-//
-//        model.addAttribute("model",make);
-//        System.out.println(make);
-//
-//        return "car/car-info";
-//    }
+
 
 
     // *********************** PATH VARIABLE ***********************
