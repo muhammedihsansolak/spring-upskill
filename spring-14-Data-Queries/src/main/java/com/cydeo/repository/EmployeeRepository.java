@@ -2,6 +2,7 @@ package com.cydeo.repository;
 
 import com.cydeo.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -41,7 +42,17 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     //display all employees that does not have email
     List<Employee> findByEmailIsNull();
 
+    /*
+    ==============================
+    JPQL (Java Persistent Query Language)
+    ==============================
+     */
 
+    @Query("SELECT employee FROM Employee employee WHERE employee.email = 'dtrail8@tamu.edu'")
+    Employee retrieveEmployeeDetail();
+
+    @Query("SELECT e.salary FROM Employee e WHERE e.email = 'dtrail8@tamu.edu'")
+    Integer retrieveEmployeeSalary();
 
 
 
