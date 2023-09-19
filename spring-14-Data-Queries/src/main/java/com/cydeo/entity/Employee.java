@@ -16,7 +16,7 @@ public class Employee extends BaseEntity{
     private String firstName;
     private String lastName;
     private String email;
-    private LocalDate hireDate;
+    private LocalDate hireDate; // in new versions we do not need to define this colum as a date @Column(columnDefinition = "DATE")
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
