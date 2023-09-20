@@ -3,6 +3,7 @@ package com.cydeo.entity;
 import com.cydeo.enums.State;
 import com.cydeo.enums.Type;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
 @NoArgsConstructor
 public class Movie extends BaseEntity{
 
@@ -40,5 +41,6 @@ public class Movie extends BaseEntity{
             inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
     private Set<Genre> genres; // using set is much more efficient. behind the scene spring uses set faster
+
 
 }
