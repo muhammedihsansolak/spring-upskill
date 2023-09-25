@@ -55,8 +55,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(
             value = "SELECT * FROM user_account ua " +
-                    "JOIN account_details ad ON ad.id = ua.account_details_id" +
-                    "WHERE ad.name ILIKE CONCAT('%',?1,'%')"
+                    "JOIN account_details ad ON ad.id = ua.account_details_id " +
+                    "WHERE ad.name ILIKE CONCAT('%',?1,'%') "
             ,nativeQuery = true)
     List<User> retrieveByUsername(String name);
 
@@ -69,8 +69,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(
             value = "SELECT * FROM user_account ua " +
-                    "JOIN account_details ad ON ad.id = ua.account_details_id" +
-                    "WHERE ad.age BETWEEN ?1 AND ?2"
+                    "JOIN account_details ad ON ad.id = ua.account_details_id " +
+                    "WHERE ad.age BETWEEN ?1 AND ?2 "
             ,nativeQuery = true)
     List<User> retrieveAllByAge(Integer age1, Integer age2);
 

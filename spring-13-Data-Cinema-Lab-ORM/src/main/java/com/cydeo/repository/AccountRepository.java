@@ -53,12 +53,13 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     //Write a native query to read all accounts that a specific value can be containable in the name, address, country, state, city
 
+    //we need to create a space every line of sql code
     @Query(
-            value = "SELECT * FROM account_details where " +
-                     "name like '%' || ?1 ||'%' OR " +
+            value = "SELECT * FROM account_details ad where " +
+                     "ad.name like '%' || ?1 ||'%' OR " +
                      "address like '%' || ?1 ||'%' OR " +
                      "country like '%' || ?1 ||'%' OR " +
-                     "state like '%' || ?1 ||'%' OR " +
+                     "ad.state like '%' || ?1 ||'%' OR " +
                      "city like '%' || ?1 ||'%' OR "
             ,nativeQuery = true)
     List<Account> fetchAllIfAnyContains(String value);

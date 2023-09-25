@@ -38,7 +38,7 @@ public class Account extends BaseEntity{
                 ", age=" + age +
                 ", postalCode='" + postalCode + '\'' +
                 ", role=" + role +
-                ", user=" + user +
+                ", user=" + user +//there is bidirectional relation. We need to be careful about infinite toString().
                 '}';
     }
 }

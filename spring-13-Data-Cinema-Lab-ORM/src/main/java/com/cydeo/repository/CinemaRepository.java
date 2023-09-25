@@ -46,7 +46,7 @@ public interface CinemaRepository extends JpaRepository<Cinema, Long> {
 
     //Write a native query to read all cinemas by name or sponsored name contains a specific pattern
 
-    @Query(value = "SELECT * FROM cinema WHERE name like concat('%',?1,'%') OR sponsored_name like concat('%',?2,'%')" ,nativeQuery = true)
+    @Query(value = "SELECT * FROM cinema c WHERE c.name like concat('%',?1,'%') OR c.sponsored_name like concat('%',?2,'%')" ,nativeQuery = true)
     List<Cinema> fetchByNameOrSponsoredName(String name, String sponsoredName);
 
     //Write a native query to sort all cinemas by name
