@@ -24,7 +24,7 @@ public class Movie extends BaseEntity{
     private LocalDate releaseDate;
     private Integer duration;
 
-    @Column(columnDefinition = "text")//text box has no character limit
+    @Column(columnDefinition = "TEXT")//text box has no character limit
     private String summary;
 
     @Enumerated(EnumType.STRING)
