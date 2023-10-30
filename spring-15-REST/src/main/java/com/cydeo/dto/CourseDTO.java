@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CourseDTO {
 
+    @JsonIgnore
     private Long id;
     private String name;
     private String category;
