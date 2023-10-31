@@ -35,13 +35,17 @@ public class ConsumingAPI_RestTemplate {
         return restTemplate.getForObject(URL, Object.class, id);
     }
 
-    //exchange() -> Whenever we want use headers we can use this method
+    //exchange() -> Whenever we want to use headers we can use this method
 
+
+    /*
+     Makes an HTTP request to an external API using the Spring RestTemplate. It performs an HTTP GET request to the URL "https://dummyapi.io/data/v1/user?limit=10" with the specified headers and no request body. the purpose of this code is to define a controller method that sends an HTTP GET request to an external API. It sets specific headers for the request, such as the "Accept" header for JSON and a custom "app-id" header.
+     */
     @GetMapping("/test")
     public ResponseEntity<Object> consumePostFromDummyApi(){
 
-        HttpHeaders headers =new HttpHeaders();
-        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        HttpHeaders headers =new HttpHeaders();//This line creates an instance of HttpHeaders, which will be used to set HTTP headers for the request that will be sent to an external API
+        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));//tells the server that the client is expecting JSON data in the response
         headers.set("app-id","6298ebfecd0551211fce37a6");
 
         HttpEntity<String> entity = new HttpEntity<>(headers);

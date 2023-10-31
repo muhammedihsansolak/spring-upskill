@@ -25,44 +25,32 @@ public class ConsumingAPI_WebClient {
         this.genreService = genreService;
     }
 
-    //My end-points with ** reactive way **
+    //--------------------------- My end-points with ** reactive way ** ---------------------------
 
     @GetMapping("/flux-movie-cinemas")
     public Flux<MovieCinemaDTO> readAllCinemaFlux(){
-
         return Flux.fromIterable(movieCinemaService.findAll());
-
     }
 
 //    @GetMapping("/mono-movie-cinema/{id}")
 //    public Mono<MovieCinemaDTO> readById(@PathVariable("id") Long id){
-//
 //        return Mono.just(movieCinemaService.findById(id));
-//
 //    }
 
     @GetMapping("/mono-movie-cinema/{id}")
     public ResponseEntity<Mono<MovieCinemaDTO>> readById(@PathVariable("id") Long id){
-
         return ResponseEntity.ok(Mono.just(movieCinemaService.findById(id)));
-
     }
 
     @PostMapping("/create-genre")
     public Mono<GenreDTO> createGenre(@RequestBody GenreDTO genre){
-
         GenreDTO createdGenre = genreService.save(genre);
-
         return Mono.just(createdGenre);
-//        return Mono.just(genreRepository.save(genre));
-
     }
 
     @DeleteMapping("/delete/genre/{id}")
     public Mono<Void> deleteGenre(@PathVariable("id") Long id){
-
         genreService.deleteById(id);
-
         return Mono.empty();
     }
 
