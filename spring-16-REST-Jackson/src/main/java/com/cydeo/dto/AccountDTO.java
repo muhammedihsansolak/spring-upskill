@@ -21,7 +21,17 @@ public class AccountDTO {
     private Integer age;
     private String postalCode;
 
-    @JsonBackReference  // This field is not going to be serialized
+    @JsonBackReference  // This field is NOT going to be serialized
+//    @JsonIgnore
     private UserDTO user;
-
 }
+/*  We excluded UserDTO to serialization
+{
+        "address": "262  Lochmere Lane",
+        "country": "United States",
+        "state": "Kentucky",
+        "city": "LOUISVILLE",
+        "age": 35,
+        "postalCode": "40289"
+    }
+ */

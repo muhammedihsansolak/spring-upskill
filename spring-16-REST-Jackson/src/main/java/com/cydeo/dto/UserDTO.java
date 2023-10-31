@@ -23,3 +23,18 @@ public class UserDTO {
     private AccountDTO account;
 
 }
+/*
+{
+        "email": "josie_story@email.com",
+        "username": "josieStory",
+        "role": "USER",
+        "account": {
+            "address": "262  Lochmere Lane",
+            "country": "United States",
+            "state": "Kentucky",
+            "city": "LOUISVILLE",
+            "age": 35,
+            "postalCode": "40289"
+        }
+    }
+ */
