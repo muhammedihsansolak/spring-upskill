@@ -27,6 +27,17 @@ public class CourseController_ResponseWrapper {
                 .body(new ResponseWrapper("Courses Retrieved!",courseService.getCourses()));
     }
 
+//    @GetMapping
+//    public ResponseEntity<ResponseWrapper> getAllCourses(){
+//
+//        return ResponseEntity
+//                .status(HttpStatus.ACCEPTED)
+//                .header("Version","Cydeo.V3")
+//                .body(ResponseWrapper.builder().success(true).message("courses successfully retrieved")
+//                        .data(courseService.getCourses()).code(200).build());
+////                .body(new ResponseWrapper("courses successfully retrieved",courseService.getCourses()));
+//    }
+
     @GetMapping("{id}")
     public ResponseEntity<ResponseWrapper> getCourseById(@PathVariable("id") long id){
         return ResponseEntity.ok(new ResponseWrapper("Course: " + id + " retrieved", courseService.getCourseById(id)));
