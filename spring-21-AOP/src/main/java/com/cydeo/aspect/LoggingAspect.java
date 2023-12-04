@@ -1,6 +1,7 @@
 package com.cydeo.aspect;
 
 import com.cydeo.dto.CourseDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -10,11 +11,12 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+//@Slf4j
 @Aspect
 @Component
 public class LoggingAspect {
 
-    Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
+    Logger logger = LoggerFactory.getLogger(LoggingAspect.class); //-> @Slf4j
 
 //    @Pointcut("execution(* com.cydeo.controller.CourseController.*(..))")
 //    public void myPointcut(){}
@@ -106,7 +108,7 @@ public class LoggingAspect {
 //                );
 //    }
 
-    @Pointcut("@annotation(com.annotation.LoggingAnnotation)")
+    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
     public void loggingAnnotation() {}
 
     @Around("loggingAnnotation()")
